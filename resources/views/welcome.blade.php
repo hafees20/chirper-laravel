@@ -34,8 +34,8 @@
     </script>
 </head>
 
-<body
-    class="bg-[#F0F2F5] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+<body <body
+    class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
     <!-- Theme Toggle Button -->
     <button id="theme-toggle"
         class="absolute top-4 right-4 z-50 px-3 py-2 border rounded-md text-sm text-gray-700 bg-white border-gray-300 hover:bg-gray-200 dark:text-white dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700 transition">
@@ -68,64 +68,74 @@
 
     <div
         class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
-        <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row gap-8">
+
+        <main class="flex flex-col-reverse lg:flex-row w-full max-w-6xl mx-auto gap-8">
             <!-- Text Content -->
-            <div class="flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-lg rounded-lg">
+            <section class="flex-1 bg-white rounded-2xl shadow-xl p-8 md:p-12 dark:bg-neutral-800 ">
                 <div class="space-y-6">
-                    <h1 class="text-3xl font-bold text-[#1DA1F2]">Welcome to Chirper</h1>
-                    <p class="text-lg text-[#536471] dark:text-[#8b98a5]">
-                        Connect with your friends and the world around you on Chirper.
+                    <h1 class="text-4xl md:text-5xl font-bold text-[#1DA1F2]">Welcome to Chirper</h1>
+                    <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400">
+                        Stay connected and discover what's happening in the world – all in real-time.
                     </p>
 
                     <div class="space-y-4">
-                        <h2 class="text-xl font-semibold">What's happening?</h2>
+                        <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Why join Chirper?</h2>
                         <ul class="space-y-4">
-                            <li class="flex items-center gap-3">
-
-                                <svg class="w-6 h-6 text-[#1DA1F2]" fill="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M20 6a8.1 8.1 0 0 1-2.34.64 4.07 4.07 0 0 0 1.79-2.25 8.16 8.16 0 0 1-2.6 1A4.07 4.07 0 0 0 12 8a11.54 11.54 0 0 1-8.39-4.25 4.07 4.07 0 0 0 1.26 5.43A4.04 4.04 0 0 1 3 8.27v.05a4.07 4.07 0 0 0 3.26 3.99 4.1 4.1 0 0 1-1.85.07 4.07 4.07 0 0 0 3.8 2.83A8.18 8.18 0 0 1 2 18.57a11.53 11.53 0 0 0 6.29 1.84c7.55 0 11.68-6.26 11.68-11.68 0-.18 0-.35-.01-.53A8.36 8.36 0 0 0 20 6z" />
-                                </svg>
-                                <span>Share your thoughts in real-time</span>
+                            <li class="flex items-start gap-4">
+                                <div class="text-[#1DA1F2]">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M20 6a8.1 8.1 0 0 1-2.34.64 4.07 4.07 0 0 0 1.79-2.25 8.16 8.16 0 0 1-2.6 1A4.07 4.07 0 0 0 12 8a11.54 11.54 0 0 1-8.39-4.25 4.07 4.07 0 0 0 1.26 5.43A4.04 4.04 0 0 1 3 8.27v.05a4.07 4.07 0 0 0 3.26 3.99 4.1 4.1 0 0 1-1.85.07 4.07 4.07 0 0 0 3.8 2.83A8.18 8.18 0 0 1 2 18.57a11.53 11.53 0 0 0 6.29 1.84c7.55 0 11.68-6.26 11.68-11.68 0-.18 0-.35-.01-.53A8.36 8.36 0 0 0 20 6z" />
+                                    </svg>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300">Post your thoughts in real-time.</p>
                             </li>
-                            <li class="flex items-center gap-3">
-                                <svg class="w-6 h-6 text-[#1DA1F2]" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 0a12 12 0 1 0 12 12A12 12 0 0 0 12 0zm0 22a10 10 0 1 1 10-10 10 10 0 0 1-10 10zm5-10a5 5 0 0 1-5 5 1 1 0 0 1 0-2 3 3 0 0 0 3-3 1 1 0 0 1 2 0z" />
-                                </svg>
-                                <span>Join trending conversations</span>
+                            <li class="flex items-start gap-4">
+                                <div class="text-[#1DA1F2]">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0a12 12 0 1 0 12 12A12 12 0 0 0 12 0zm0 22a10 10 0 1 1 10-10 10 10 0 0 1-10 10zm5-10a5 5 0 0 1-5 5 1 1 0 0 1 0-2 3 3 0 0 0 3-3 1 1 0 0 1 2 0z" />
+                                    </svg>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300">Join trending conversations with ease.</p>
                             </li>
-                            <li class="flex items-center gap-3">
-                                <svg class="w-6 h-6 text-[#1DA1F2]" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 4a4 4 0 1 0 4 4 4 4 0 0 0-4-4zm0 6a2 2 0 1 1 2-2 2 2 0 0 1-2 2zm0 11a8 8 0 0 1-8-8 1 1 0 0 1 2 0 6 6 0 0 0 12 0 1 1 0 0 1 2 0 8 8 0 0 1-8 8z" />
-                                </svg>
-                                <span>Follow interesting people</span>
+                            <li class="flex items-start gap-4">
+                                <div class="text-[#1DA1F2]">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 4a4 4 0 1 0 4 4 4 4 0 0 0-4-4zm0 6a2 2 0 1 1 2-2 2 2 0 0 1-2 2zm0 11a8 8 0 0 1-8-8 1 1 0 0 1 2 0 6 6 0 0 0 12 0 1 1 0 0 1 2 0 8 8 0 0 1-8 8z" />
+                                    </svg>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300">Connect with people who inspire you.</p>
                             </li>
                         </ul>
                     </div>
 
                     <div class="pt-6">
                         <a href="{{ route('register') }}"
-                            class="inline-block w-full text-center bg-[#1DA1F2] hover:bg-[#1a8cd8] text-white px-8 py-3 rounded-full font-medium transition-colors">
+                            class="inline-block w-full text-center bg-[#1DA1F2] hover:bg-[#1A8CD8] text-white px-6 py-3 rounded-full font-medium transition">
                             Get Started
                         </a>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- Image/Graphics Section -->
-            <div class="bg-[#E8F5FE] dark:bg-[#192734] rounded-lg lg:w-1/2 overflow-hidden">
-                <div class="p-8 text-center">
-                    <div class="text-[#1DA1F2] text-6xl mb-4">🐦</div>
-
-                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-200">Join Chirper today</h2>
-                    <p class="text-[#536471] dark:text-[#8b98a5]">
-                        Be part of the conversation. Share your moments. Connect with others.
-                    </p>
+            <aside
+                class="flex-1 bg-white dark:bg-neutral-800 rounded-2xl shadow-xl p-8 flex flex-col justify-center items-center text-center">
+                <!-- You can replace the SVG below with a modern illustration or image -->
+                <div
+                    class="w-32 h-32 bg-[#E8F5FD] dark:bg-[#1D2939] rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-16 h-16 text-[#1DA1F2]" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M22.46 6c-.77.35-1.6.59-2.46.7a4.26 4.26 0 0 0 1.88-2.36 8.52 8.52 0 0 1-2.71 1.04A4.24 4.24 0 0 0 11.2 8.03c0 .33.04.65.1.96A12.06 12.06 0 0 1 3.15 4.67a4.23 4.23 0 0 0-.58 2.13c0 1.47.75 2.77 1.88 3.53a4.2 4.2 0 0 1-1.92-.53v.06c0 2.05 1.46 3.76 3.4 4.15a4.3 4.3 0 0 1-1.91.07c.54 1.68 2.1 2.91 3.95 2.95a8.51 8.51 0 0 1-5.28 1.82A8.62 8.62 0 0 1 2 19.54a12.02 12.02 0 0 0 6.51 1.91c7.81 0 12.08-6.47 12.08-12.08l-.01-.55A8.55 8.55 0 0 0 24 4.56a8.3 8.3 0 0 1-2.38.65A4.25 4.25 0 0 0 22.46 6z" />
+                    </svg>
                 </div>
-            </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Join Chirper today</h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-xs">
+                    Be part of the conversation. Share your moments. Find your community.
+                </p>
+            </aside>
         </main>
     </div>
 

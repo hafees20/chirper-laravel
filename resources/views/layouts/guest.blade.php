@@ -16,7 +16,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <script>
-        // Check localStorage and apply dark class early to avoid flash
+        // Apply theme early
         if (localStorage.getItem('theme') === 'dark' ||
             (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -34,24 +34,26 @@
             });
         });
     </script>
-
 </head>
 
-<body class="font-sans text-gray-900 dark:text-[#EDEDEC] bg-gray-100 dark:bg-[#0a0a0a] antialiased">
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+<body class="font-sans antialiased bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+    <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0 sm:justify-center relative">
+
         <!-- Theme Toggle Button -->
         <button id="theme-toggle"
-            class="absolute top-4 right-4 text-sm px-3 py-2 border rounded-md text-gray-700 bg-white border-gray-300 hover:bg-gray-200 dark:text-white dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700 transition">
+            class="absolute top-4 right-4 z-50 px-3 py-2 border rounded-md text-sm text-gray-700 bg-white border-gray-300 hover:bg-gray-200 dark:text-white dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700 transition">
             🌓
         </button>
+
+        <!-- Logo -->
         <div>
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500 dark:text-gray-300" />
             </a>
         </div>
 
-        <div
-            class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-[#161615] shadow-md overflow-hidden sm:rounded-lg">
+        <!-- Main Content Card -->
+        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-lg sm:rounded-lg">
             {{ $slot }}
         </div>
     </div>

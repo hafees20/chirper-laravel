@@ -17,7 +17,7 @@ class ChirpController extends Controller
     {
         //
         return view('chirps.index', [
-            'chirps' => Chirp::with('user')->latest()->get(),
+            'chirps' => Chirp::with('user')->latest()->paginate(5),
         ]);
     }
 
@@ -36,10 +36,18 @@ class ChirpController extends Controller
     {
         $validated = $request->validate([
             'message' => 'required|string|max:250',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif,webp|max:2048', // 2MB max
         ]);
+
+        // Handle image upload if present
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('chirp-images', 'public');
+            $validated['image'] = $path;
+        }
+
         $request->user()->chirps()->create($validated);
 
-        return redirect((route('chirps.index')));
+        return redirect(route('chirps.index'));
     }
 
     /**
