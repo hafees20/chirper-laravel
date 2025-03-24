@@ -1,6 +1,3 @@
-
-
-
 <x-app-layout>
     <div class="container mx-auto max-w-xl py-10">
         <h1 class="text-3xl font-bold mb-4">Welcome back, {{ Auth::user()->name }} 👋</h1>
