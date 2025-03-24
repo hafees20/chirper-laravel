@@ -43,23 +43,28 @@
     </script>
 </head>
 
+
 <body class="font-sans antialiased bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-    <div class="min-h-screen">
-        @include('layouts.navigation')
+    <div class="h-screen flex flex-col overflow-hidden">
+        <!-- Sticky Navbar -->
+        <div class="flex-shrink-0">
+            @include('layouts.navigation')
+        </div>
 
-        <!-- Page Heading -->
-        @isset($header)
-            <header class="bg-white shadow dark:bg-gray-800 dark:shadow-gray-700">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endisset
+        <!-- Scrollable Content Area -->
+        <div class="flex-1 overflow-y-auto">
+            @isset($header)
+                <header class="bg-white shadow dark:bg-gray-800 dark:shadow-gray-700">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endisset
 
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+            <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {{ $slot }}
+            </main>
+        </div>
     </div>
 </body>
 
