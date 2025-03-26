@@ -5,8 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChirpController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PublicProfileController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect('/chirps');
+    }
     return view('welcome');
 });
 

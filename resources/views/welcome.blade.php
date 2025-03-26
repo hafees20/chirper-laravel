@@ -41,31 +41,24 @@
         class="absolute top-4 right-4 z-50 px-3 py-2 border rounded-md text-sm text-gray-700 bg-white border-gray-300 hover:bg-gray-200 dark:text-white dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700 transition">
         🌓
     </button>
-    <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
+
+    <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6">
         @if (Route::has('login'))
             <nav class="flex items-center justify-end gap-4">
-                @auth
-                    <a href="{{ url('/chirps') }}"
-                        class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                        Chirps
-                    </a>
-                @else
-                    <a href="{{ route('login') }}"
-                        class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal">
-                        Log in
-                    </a>
+                <a href="{{ route('login') }}"
+                    class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal">
+                    Log in
+                </a>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                            Register
-                        </a>
-                    @endif
-                @endauth
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}"
+                        class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                        Register
+                    </a>
+                @endif
             </nav>
         @endif
     </header>
-
     <div
         class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
 
