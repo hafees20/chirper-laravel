@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChirpController;
+use App\Http\Controllers\FollowController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PublicProfileController;
 use Illuminate\Support\Facades\Auth;
@@ -32,5 +33,8 @@ Route::resource('chirps', ChirpController::class)
     ->middleware(['auth', 'verified']);
 
 Route::get('/user/{username}', [PublicProfileController::class, 'show'])->name('user.profile');
+
+Route::post('/follow/{user}', [FollowController::class, 'follow'])->name('follow');
+Route::post('/unfollow/{user}', [FollowController::class, 'unfollow'])->name('unfollow');
 
 require __DIR__ . '/auth.php';

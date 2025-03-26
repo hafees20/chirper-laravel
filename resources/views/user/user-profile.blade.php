@@ -16,6 +16,33 @@
             <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{{ $user->name }}</h1>
             <p class="text-gray-500 dark:text-gray-400">{{ "@{$user->name}" }}</p>
 
+            {{-- Follow Button (only if not the same user) --}}
+            @auth
+                @if (Auth::id() !== $user->id)
+                    <form method="POST"
+                        action="{{ route($user->followers->contains(Auth::id()) ? 'unfollow' : 'follow', $user->id) }}"
+                        class="mt-4">
+                        @csrf
+                        <x-primary-button
+                            class="px-4 py-2 dark:bg-gray-700 dark:hover:bg-gray-600 text-white dark:text-gray-100 border border-transparent hover:border-blue-800 dark:hover:border-gray-500 rounded-lg transition-colors duration-200">
+                            {{ $user->followers->contains(Auth::id()) ? 'Unfollow' : 'Follow' }}
+                        </x-primary-button>
+                    </form>
+                @endif
+            @endauth
+
+
+            {{-- Follower / Following counts --}}
+            <div class="mt-4 flex justify-center space-x-6 text-sm text-gray-600 dark:text-gray-300">
+                <div>
+                    <span class="font-semibold">{{ $user->followers->count() }}</span> Followers
+                </div>
+                <div>
+                    <span class="font-semibold">{{ $user->following->count() }}</span> Following
+                </div>
+            </div>
+
+
 
             <p class="mt-3 text-gray-800 dark:text-gray-200">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. I’ll update this later with real bio.
