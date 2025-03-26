@@ -6,6 +6,8 @@ use App\Models\Chirp;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
 class ChirpController extends Controller
@@ -34,10 +36,24 @@ class ChirpController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'message' => 'required|string|max:250',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif,webp|max:2048', // 2MB max
+        /*$validated = $request->validate([*/
+        /*    'message' => 'string|max:250',*/
+        /*    'image' => 'nullable|image|mimes:jpg,jpeg,png,gif,webp|max:2048', // 2MB max*/
+        /*]);*/
+
+        $validator = Validator::make($request->all(), [
+            'message' => 'nullable|string|max:250',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif,webp|max:2048',
         ]);
+
+        $validator->after(function ($validator) use ($request) {
+            if (empty($request->message) && !$request->hasFile('image')) {
+                $validator->errors()->add('message', 'We can’t read your mind. Yet.');
+            }
+        });
+
+
+        $validated = $validator->validate();
 
         // Handle image upload if present
         if ($request->hasFile('image')) {
@@ -94,6 +110,11 @@ class ChirpController extends Controller
     {
         //
         Gate::authorize('delete', $chirp);
+
+        if ($chirp->image && Storage::disk('public')->exists($chirp->image)) {
+            Storage::disk('public')->delete($chirp->image);
+        }
+
         $chirp->delete();
         return redirect(route('chirps.index'));
     }
