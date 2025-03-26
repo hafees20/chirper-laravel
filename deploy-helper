@@ -1,0 +1,16 @@
+# Install dependencies for production
+composer install --optimize-autoloader --no-dev
+
+# generate app key
+php artisan key:generate
+
+# storage linking if needed
+php artisan storage:link
+
+# migrations
+php artisan migrate
+
+# setting necessary permission if the project is in /var/www
+sudo chown -R www-data database/database.sqlite
+sudo chown -R www-data storage
+sudo chown -R www-data bootstrap/cache
