@@ -34,7 +34,7 @@
     </script>
 </head>
 
-<body <body
+<body
     class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
     <!-- Theme Toggle Button -->
     <button id="theme-toggle"
